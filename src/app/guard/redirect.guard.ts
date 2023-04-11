@@ -26,7 +26,7 @@ export class RedirectGuard implements CanActivate {
         if (
           newRouteConfig.some((x) => x.path?.includes(state.url.substring(1)))
         ) {
-          this.router.navigate([state.url]);
+          return this.router.createUrlTree([state.url]);
         }
         return true;
       })
